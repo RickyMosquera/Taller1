@@ -16,6 +16,8 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
 /**
@@ -31,7 +33,8 @@ public class FXMLDocumentController implements Initializable {
     private Label ptoX;
     @FXML
     private Label ptoY;
-    
+    @FXML
+    private Circle Circle;
     
     
     @FXML
@@ -96,6 +99,16 @@ public class FXMLDocumentController implements Initializable {
         
         double w = Lienzo.getWidth();
         double h = Lienzo.getHeight();
+        
+        Circle c = new Circle(50);
+        Rectangle r = new Rectangle(100, 100);
+        
+        PathTransition transition = new PathTransition();
+        transition.setNode(Circle);
+        transition.setDuration(Duration.seconds(5));
+        transition.setPath(c);
+        transition.setCycleCount(PathTransition.INDEFINITE);
+        transition.play();
     }    
     
 }
